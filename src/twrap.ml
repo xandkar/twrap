@@ -25,7 +25,11 @@ let timestamp () =
 
 let rec print_stdin_lines () =
     try
-      printf "%s %s %s\n" (timestamp ()) sep_ts_data (read_line ());
+      let timestamp = timestamp ()
+      and line = read_line ()
+      in
+      let wrapped_line = sprintf "%s %s %s" timestamp sep_ts_data line in
+      print_endline wrapped_line;
       print_stdin_lines ()
     with End_of_file ->
       ()
