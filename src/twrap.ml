@@ -23,20 +23,12 @@ let timestamp () =
   date ^ sep_datetime ^ time
 
 
-let print_stdin_lines () =
-  let read_line ic =
+let rec print_stdin_lines () =
     try
-      Some (input_line ic)
+      printf "%s %s %s\n" (timestamp ()) sep_ts_data (read_line ());
+      print_stdin_lines ()
     with End_of_file ->
-      None
-  in
-  let rec print_lines = function
-    | None -> ()
-    | Some line ->
-      printf "%s %s %s\n" (timestamp ()) sep_ts_data line;
-      print_lines (read_line stdin)
-  in
-  print_lines (read_line stdin)
+      ()
 
 
 let main () =
