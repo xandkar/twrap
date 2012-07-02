@@ -12,10 +12,10 @@ let timestamp () =
   let tm = localtime (time ()) in
   let year   = sprintf "%04d" (tm.tm_year + 1900)
   and month  = sprintf "%02d" (tm.tm_mon + 1)
-  and day    = sprintf "%02d" (tm.tm_mday)
-  and hour   = sprintf "%02d" (tm.tm_hour)
-  and minute = sprintf "%02d" (tm.tm_min)
-  and second = sprintf "%02d" (tm.tm_sec)
+  and day    = sprintf "%02d" tm.tm_mday
+  and hour   = sprintf "%02d" tm.tm_hour
+  and minute = sprintf "%02d" tm.tm_min
+  and second = sprintf "%02d" tm.tm_sec
   in
   let date = String.concat sep_date [year; month; day]
   and time = String.concat sep_time [hour; minute; second]
