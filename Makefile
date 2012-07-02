@@ -13,7 +13,7 @@ clean:
 	@rm -rf bin
 	@find \
 		./src \
-			-name '*.o' \
-		-or -name '*.cmi' \
-		-or -name '*.$(OBJ_EXT)' \
+			-name \*.o \
+		-or -name \*.cmi \
+		-or -name \*.$(OBJ_EXT) \
 		| xargs rm -f
